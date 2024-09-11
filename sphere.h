@@ -2,7 +2,6 @@
 #define SPHERE_H
 
 #include "hittable.h"
-#include "vec3.h"
 
 class sphere : public hittable{
     public:
@@ -21,9 +20,9 @@ class sphere : public hittable{
             auto sqrtd = std::sqrt(discriminant);
 
             auto root = (h - sqrtd) / a;
-            if (root <= ray_tmin) || root => ray_tmax){
+            if (root <= ray_tmin || root >= ray_tmax){
                 root = (h + sqrtd) / a;
-                if (root <= ray_tmin || root => ray_tmax){
+                if (root <= ray_tmin || root >= ray_tmax){
                     return false;
                 }
             }
